@@ -1,17 +1,19 @@
 "use client"
-import { CldImage } from 'next-cloudinary';
-import { HeartIcon, FullHeartIcon } from '../components/icons/DashboardIcons';
-import { setAsFavoriteAction } from './actions';
-import { useTransition } from 'react'
-import { SearchResult } from './page';
+import { CldImage, CldImageProps } from 'next-cloudinary';
+import { HeartIcon, FullHeartIcon } from './icons/DashboardIcons';
+import { setAsFavoriteAction } from '../gallery/actions';
+import { useState, useTransition } from 'react'
+import { SearchResult } from '../gallery/page';
+import ImageMenu from './image-menu';
 
-export default function CloudinaryImage(
-    props: any & SearchResult,
-    path: string
+export default function CloudinaryImage(props: {
+    image_data: SearchResult,
+    onUnheart?: (unheartedResource: SearchResult) => void
+} & Omit<CldImageProps, "src">,
 ) {
     const [transition, startTransition] = useTransition();
-    const { image_data } = props;
-    const isFavorite = image_data.tags.includes('favorite');
+    const { image_data, onUnheart } = props;
+    const [isFavorite, setIsFavorite] = useState(image_data.tags.includes('favorite'));
 
     return (
         <div className="relative">
@@ -23,13 +25,14 @@ export default function CloudinaryImage(
                 isFavorite
                     ? (
                         <FullHeartIcon
-                            className="absolute top-2 right-2 cursor-pointer text-red-500"
+                            className="absolute top-2 left-2 cursor-pointer text-red-500"
                             onClick={() => {
+                                onUnheart?.(image_data);
+                                setIsFavorite(false);
                                 startTransition(() => {
                                     setAsFavoriteAction({
                                         publicId: image_data.public_id,
                                         isFavorite: false,
-                                        path
                                     })
                                 });
                             }}
@@ -37,19 +40,21 @@ export default function CloudinaryImage(
                     )
                     : (
                         <HeartIcon
-                            className="absolute top-2 right-2 cursor-pointer hover:text-red-500"
+                            className="absolute top-2 left-2 cursor-pointer text-white hover:text-red-500"
                             onClick={() => {
+                                onUnheart?.(image_data);
+                                setIsFavorite(true);
                                 startTransition(() => {
                                     setAsFavoriteAction({
                                         publicId: image_data.public_id,
                                         isFavorite: true,
-                                        path
                                     })
                                 });
                             }}
                         />
                     )
             }
+            <ImageMenu />
         </div>
     )
 }

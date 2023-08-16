@@ -1,6 +1,7 @@
 import UploadButton from "./upload-button";
 import cloudinary from "cloudinary";
-import CloudinaryImage from "./cloudinary-image";
+import CloudinaryImage from "../components/cloudinary-image";
+import ImageGrid from "../components/image-grid";
 
 export type SearchResult = {
     public_id: string,
@@ -23,19 +24,28 @@ export default async function GalleryPage() {
                     <UploadButton />
                 </div>
 
-                <div className="grid grid-cols-4 gap-4">
-                    {results.resources.map((result) => (
-                        <CloudinaryImage
-                            key={result.public_id}
-                            image_data={result}
-                            width="400"
-                            height="300"
-                            sizes="100vw"
-                            alt="Description of my image"
-                            path="/gallery"
-                        />
-                    ))}
-                </div>
+                {results.resources.length === 0 && (
+                    <div className="flex flex-col items-center justify-center h-96">
+                        <h1 className="text-4xl font-bold text-white">No images yet</h1>
+                        <p className="text-white">Upload an image to get started</p>
+                    </div>
+                )}
+
+                <ImageGrid
+                    images={results.resources}
+                    getImage={(imageData) => {
+                        return (
+                            <CloudinaryImage
+                                key={imageData.public_id}
+                                image_data={imageData}
+                                width="400"
+                                height="300"
+                                sizes="100vw"
+                                alt="Description of my image"
+                            />
+                        )
+                    }}
+                />
             </div>
         </section>
     );
