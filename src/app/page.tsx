@@ -9,5 +9,9 @@ export default function Home() {
     router.push("/gallery");
   }, []);
 
-  return <>spinner...</>;
+  return (
+    <div className="flex justify-center items-center h-[80vh]">
+      <span className="loading loading-bars loading-lg"></span>
+    </div>
+  );
 }
