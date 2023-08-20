@@ -1,4 +1,5 @@
 import { ComponentProps } from "react";
+import { twMerge } from "tailwind-merge";
 
 export const HeartIcon = (props: ComponentProps<"div">) => (
     <div {...props}>
@@ -24,8 +25,16 @@ export const ImageIcon = () => (
     </svg>
 )
 
-export const FolderIcon = () => (
-    <svg className="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 18">
-        <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M1 5v11a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1V6a1 1 0 0 0-1-1H1Zm0 0V2a1 1 0 0 1 1-1h5.443a1 1 0 0 1 .8.4l2.7 3.6H1Z" />
-    </svg>
-)
+export const FolderIcon = (
+    { className }: { className?: string }
+) => {
+    const mergedClass = twMerge(
+        "w-6 h-6 text-gray-800 dark:text-white",
+        className
+    )
+    return (
+        <svg className={mergedClass} aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 18">
+            <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M1 5v11a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1V6a1 1 0 0 0-1-1H1Zm0 0V2a1 1 0 0 1 1-1h5.443a1 1 0 0 1 .8.4l2.7 3.6H1Z" />
+        </svg>
+    )
+}

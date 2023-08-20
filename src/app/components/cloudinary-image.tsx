@@ -54,7 +54,7 @@ export default function CloudinaryImage(props: {
                         />
                     )
             }
-            <ImageMenu />
+            <ImageMenu image={image_data} />
         </div>
     )
 }

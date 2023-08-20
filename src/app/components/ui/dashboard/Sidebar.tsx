@@ -1,14 +1,11 @@
 import { HeartIcon, ImageIcon, FolderIcon } from "../../icons/DashboardIcons";
 import Navigate from "./Navigate";
+import Albums from "./Albums";
 
 const menu = [
     {
         name: "Gallery",
         icon: <ImageIcon />,
-    },
-    {
-        name: "Albums",
-        icon: <FolderIcon />,
     },
     {
         name: "Favorites",
@@ -34,6 +31,8 @@ export default function Sidebar(
                             <Navigate item={item} />
                         </li>
                     ))}
+                    <div className="divider"></div>
+                    <Albums />
                 </ul>
             </div>
         </div>
