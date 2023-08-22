@@ -2,6 +2,8 @@ import { MenuIcon } from "./icons/Menu";
 import { FolderPlusIcon } from "./icons/FolderPlus";
 import { SearchResult } from "../gallery/page";
 import { useModalStore } from "../store/useModalStore";
+import { PencilIcon } from "./icons/Pencil";
+import Link from "next/link";
 
 export default function ImageMenu(
     { image }: { image: SearchResult }
@@ -28,6 +30,10 @@ export default function ImageMenu(
                             <FolderPlusIcon />
                             Add to Album
                         </button>
+                        <Link href={`/edit?publicId=${encodeURIComponent(image.public_id)}`}>
+                            <PencilIcon />
+                            Edit
+                        </Link>
                     </li>
                 </ul>
             </div>
