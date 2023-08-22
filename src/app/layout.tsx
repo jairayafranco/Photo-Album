@@ -1,8 +1,8 @@
 import './globals.css'
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
-import Dashboard from './components/ui/dashboard/Dashboard'
-import AddToAlbumDialog from './components/ui/add-album/add-to-album-dialog'
+import Dashboard from './_components/ui/dashboard/Dashboard'
+import AddToAlbumDialog from './_components/ui/add-album/add-to-album-dialog'
 
 const inter = Inter({ subsets: ['latin'] })
 

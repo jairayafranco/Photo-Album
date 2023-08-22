@@ -1,7 +1,7 @@
 import { SearchResult } from '@/app/gallery/page';
 import AlbumGrid from '../album-grid';
 import cloudinary from 'cloudinary';
-import ForceRefresh from '@/app/components/force-refresh';
+import ForceRefresh from '@/app/_components/force-refresh';
 
 export default async function AlbumPage({
     params: { album }

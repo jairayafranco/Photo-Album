@@ -1,5 +1,5 @@
-import CloudinaryImage from "../components/cloudinary-image";
-import ImageGrid from "../components/image-grid";
+import CloudinaryImage from "../_components/cloudinary-image";
+import ImageGrid from "../_components/image-grid";
 import { SearchResult } from "../gallery/page";
 
 export default function AlbumGrid(

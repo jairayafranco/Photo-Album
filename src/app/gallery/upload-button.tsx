@@ -1,6 +1,6 @@
 "use client"
 import { CldUploadButton } from 'next-cloudinary';
-import { UploadIcon } from '../components/icons/GalleryPageIcons';
+import { UploadIcon } from '../_components/icons/GalleryPageIcons';
 import { useRouter } from 'next/navigation';
 
 export default function UploadButton() {
