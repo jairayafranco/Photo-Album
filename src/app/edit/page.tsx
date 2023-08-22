@@ -8,8 +8,10 @@ export default function EditPage({
     searchParams: { publicId: string };
 }) {
     const [transformation, setTransformation] = useState<
-        undefined | "generative-fill" | "blur" | "grayscale" | "pixelate"
+        undefined | "generative-fill" | "blur" | "grayscale" | "pixelate" | "bg-remove"
     >();
+    const [prompt, setPrompt] = useState("");
+    const [pendingPrompt, setPendingPrompt] = useState("");
 
     return (
         <section>
@@ -19,8 +21,8 @@ export default function EditPage({
                 </div>
 
                 <div className="flex flex-wrap gap-2">
-                    <button className="btn btn-primary" onClick={() => setTransformation("generative-fill")}>
-                        Apply Generative Fill
+                    <button className="btn" onClick={() => setTransformation(undefined)}>
+                        Clear All
                     </button>
 
                     <button className="btn btn-secondary" onClick={() => setTransformation("blur")}>
@@ -35,30 +37,48 @@ export default function EditPage({
                         Apply Pixelate
                     </button>
 
-                    <button className="btn" onClick={() => setTransformation(undefined)}>
-                        Clear All
+                    <button className="btn btn-success" onClick={() => setTransformation("bg-remove")}>
+                        Remove Background
                     </button>
+
+                    <div className="flex flex-wrap join">
+                        <input
+                            type="text"
+                            className="input mb-2 join-item"
+                            placeholder="Prompt"
+                            value={pendingPrompt}
+                            onChange={(e) => setPendingPrompt(e.target.value)}
+                        />
+                        <button className="btn btn-primary join-item" onClick={() => {
+                            setTransformation("generative-fill")
+                            setPrompt(pendingPrompt)
+                        }}>
+                            Apply Generative Fill
+                        </button>
+                    </div>
                 </div>
 
                 <div className="flex flex-col items-center md:grid grid-cols-2 gap-12">
-                    <CldImage src={publicId} width="300" height="200" alt="" />
+                    <CldImage src={publicId} width="600" height="500" alt="" />
 
                     {transformation === "generative-fill" && (
                         <CldImage
                             src={publicId}
-                            width="300"
-                            height="200"
+                            width="600"
+                            height="500"
                             alt=""
                             crop="pad"
-                            fillBackground
+                            fillBackground={{
+                                prompt
+                            }}
                         />
                     )}
 
                     {transformation === "blur" && (
                         <CldImage
                             src={publicId}
-                            width="300"
-                            height="200"
+                            width="600"
+                            height="500"
                             alt=""
                             blur="800"
                         />
@@ -67,8 +87,8 @@ export default function EditPage({
                     {transformation === "grayscale" && (
                         <CldImage
                             src={publicId}
-                            width="300"
-                            height="200"
+                            width="600"
+                            height="500"
                             alt=""
                             grayscale
                         />
@@ -77,10 +97,20 @@ export default function EditPage({
                     {transformation === "pixelate" && (
                         <CldImage
                             src={publicId}
-                            width="300"
-                            height="200"
+                            width="600"
+                            height="500"
                             alt=""
                             pixelate
+                        />
+                    )}
+
+                    {transformation === "bg-remove" && (
+                        <CldImage
+                            src={publicId}
+                            width="600"
+                            height="500"
+                            alt=""
+                            removeBackground
                         />
                     )}
                 </div>

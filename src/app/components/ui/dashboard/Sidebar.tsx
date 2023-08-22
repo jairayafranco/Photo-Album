@@ -31,8 +31,9 @@ export default function Sidebar(
                             <Navigate item={item} />
                         </li>
                     ))}
-                    <div className="divider"></div>
-                    <Albums />
+                    <li>
+                        <Albums />
+                    </li>
                 </ul>
             </div>
         </div>
