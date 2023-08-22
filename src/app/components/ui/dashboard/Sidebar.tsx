@@ -1,4 +1,4 @@
-import { HeartIcon, ImageIcon, FolderIcon } from "../../icons/DashboardIcons";
+import { HeartIcon, ImageIcon } from "../../icons/DashboardIcons";
 import Navigate from "./Navigate";
 import Albums from "./Albums";
 
