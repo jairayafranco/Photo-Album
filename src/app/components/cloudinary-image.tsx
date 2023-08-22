@@ -20,6 +20,7 @@ export default function CloudinaryImage(props: {
             <CldImage
                 {...props}
                 src={image_data.public_id}
+                className="rounded-lg"
             />
             {
                 isFavorite
