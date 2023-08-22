@@ -1,34 +1,60 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Photo Album App
 
-## Getting Started
+![Photo Album Logo](static/images/cap1.png)<img title="" src="static/images/cap2.png" alt="Photo Album Logo" data-align="inline">
 
-First, run the development server:
+**Photo Album App** es una aplicación web que te permite crear y explorar galerías de fotos de manera fácil y rápida. Esta aplicación está construida utilizando **Next.js**, **Tailwind CSS**, **TypeScript** y **Cloudinary** para almacenar y gestionar las imágenes.
+
+## Características
+
+- Crea y personaliza tus propias galerías de fotos.
+- Sube imágenes a Cloudinary para un almacenamiento seguro y eficiente.
+- Explora tus galerías y visualiza las fotos en una interfaz atractiva.
+- Interfaz receptiva y amigable para dispositivos móviles y de escritorio.
+
+## Tecnologías Utilizadas
+
+- **Next.js**: Framework de React para aplicaciones web modernas.
+- **Tailwind CSS**: Un framework de CSS utilitario para diseñar interfaces rápidamente.
+- **TypeScript**: Añade tipado estático a JavaScript para mejorar el desarrollo.
+- **Cloudinary**: Servicio de almacenamiento y manipulación de imágenes en la nube.
+
+## Instalación
+
+1. Clona este repositorio en tu máquina local:
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
+git clone https://github.com/jairayafranco/Photo-Album.git
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+2. Navega al directorio del proyecto:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+cd photo-album
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+3. Instala las dependencias utilizando npm o yarn:
 
-## Learn More
+```bash
+npm install
+# o
+yarn install
+```
 
-To learn more about Next.js, take a look at the following resources:
+4. Configuración de Cloudinary:
+   
+   - Crea una cuenta en Cloudinary si aún no la tienes.
+   - Obtén tu **Cloud Name** y **Cloudinary URL** desde el panel de control de Cloudinary.
+   - Configura estas credenciales en el archivo `.env.local`:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```bash
+NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME=""
+CLOUDINARY_URL=""
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+## Uso
 
-## Deploy on Vercel
+1. Inicia el servidor de desarrollo: `npm run dev # o yarn dev`
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+2. Abre tu navegador y navega a `http://localhost:3000` para acceder a la aplicación.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+3. Explora las diferentes características de la aplicación, crea nuevas galerías, sube imágenes y disfruta de tus fotos.
