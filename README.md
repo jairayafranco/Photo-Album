@@ -2,59 +2,59 @@
 
 ![Photo Album Logo](static/images/cap1.png)<img title="" src="static/images/cap2.png" alt="Photo Album Logo" data-align="inline">
 
-**Photo Album App** es una aplicación web que te permite crear y explorar galerías de fotos de manera fácil y rápida. Esta aplicación está construida utilizando **Next.js**, **Tailwind CSS**, **TypeScript** y **Cloudinary** para almacenar y gestionar las imágenes.
+**Photo Album App** is a web application that allows you to create and browse photo galleries easily and quickly. This application is built using **Next.js**, **Tailwind CSS**, **TypeScript** and **Cloudinary** to store and manage images.
 
-## Características
+## Characteristics
 
-- Crea y personaliza tus propias galerías de fotos.
-- Sube imágenes a Cloudinary para un almacenamiento seguro y eficiente.
-- Explora tus galerías y visualiza las fotos en una interfaz atractiva.
-- Interfaz receptiva y amigable para dispositivos móviles y de escritorio.
+- Create and customize your own photo galleries.
+- Upload images to Cloudinary for secure and efficient storage.
+- Browse your galleries and view photos in an attractive interface.
+- Responsive and friendly interface for mobile and desktop devices.
 
-## Tecnologías Utilizadas
+## Used technology
 
-- **Next.js**: Framework de React para aplicaciones web modernas.
-- **Tailwind CSS**: Un framework de CSS utilitario para diseñar interfaces rápidamente.
-- **TypeScript**: Añade tipado estático a JavaScript para mejorar el desarrollo.
-- **Cloudinary**: Servicio de almacenamiento y manipulación de imágenes en la nube.
+- **Next.js**: React framework for modern web applications.
+- **Tailwind CSS**: A utilitarian CSS framework to quickly design interfaces.
+- **TypeScript**: Adds static typing to JavaScript to improve development.
+- **Cloudinary**: Image storage and manipulation service in the cloud.
 
-## Instalación
+## Facility
 
-1. Clona este repositorio en tu máquina local:
+1. Clone this repository to your local machine:
 
 ```bash
 git clone https://github.com/jairayafranco/Photo-Album.git
 ```
 
-2. Navega al directorio del proyecto:
+2. Navigate to the project directory:
 
 ```bash
-cd photo-album
+cd photo album
 ```
 
-3. Instala las dependencias utilizando npm o yarn:
+3. Install the dependencies using npm or yarn:
 
 ```bash
 npm install
-# o
+# either
 yarn install
 ```
 
-4. Configuración de Cloudinary:
+4. Cloudinary Configuration:
    
-   - Crea una cuenta en Cloudinary si aún no la tienes.
-   - Obtén tu **Cloud Name** y **Cloudinary URL** desde el panel de control de Cloudinary.
-   - Configura estas credenciales en el archivo `.env.local`:
+    - Create an account on Cloudinary if you don't already have one.
+    - Get your **Cloud Name** and **Cloudinary URL** from the Cloudinary control panel.
+    - Configure these credentials in the `.env.local` file:
 
 ```bash
 NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME=""
 CLOUDINARY_URL=""
 ```
 
-## Uso
+## Use
 
-1. Inicia el servidor de desarrollo: `npm run dev # o yarn dev`
+1. Start the development server: `npm run dev # or yarn dev`
 
-2. Abre tu navegador y navega a `http://localhost:3000` para acceder a la aplicación.
+2. Open your browser and navigate to `http://localhost:3000` to access the application.
 
-3. Explora las diferentes características de la aplicación, crea nuevas galerías, sube imágenes y disfruta de tus fotos.
+3. Explore the different features of the app, create new galleries, upload images and enjoy your photos.
